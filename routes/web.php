@@ -16,9 +16,9 @@ $router->get('/', function () use ($router) {
 });
 
 //Generate Application key
-$router->get('/key', function(){
-    return str_random(32);
-});
+// $router->get('/key', function(){
+//     return str_random(32);
+// });
 
 //Membuat Url get dengan "/tesip"
 $router->get('/tesip', function(){
@@ -134,3 +134,11 @@ $router->get('/adm/beranda', ['middleware' => 'age' , function (){
 $router->get('/fail', function (){
     return 'Note yet mature';
 });
+
+//=====================================================================
+//Menggunakan Kontroler pada router
+//=====================================================================
+
+$router->get('/key', 'Cobakontroler@generateKey');
+
+$router->post('/foo', 'Cobakontroler@fooExample');
