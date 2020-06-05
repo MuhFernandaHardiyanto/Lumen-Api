@@ -65,19 +65,40 @@ $router->options('/options', function(){
 });
 
 //=====================================================================
-//Mencoba Route dengan memanggil ID atau data tertertu
+//Mencoba Route dengan memanggil ID atau data tertertu 
 //=====================================================================
 
+//(BASIC ROUTE PARAMETER)
 $router->get('/user/{id}', function($id){
     return 'User id = ' . $id;
 });
 
-//Memanggil 2 route post dan comments
+//Memanggil 2 route post dan comments (BASIC ROUTE PARAMETER)
 $router->get('/post/{postID}/comments/{commendID}', function($postID, $komenID){
     return 'Post ID = ' . $postID . ' Comments ID = ' . $komenID;
 });
 
-//Mencoba Route URL OPSIONAL (boleh tidak diisi/ data di kosongkan)
+//Mencoba Route URL OPSIONAL (boleh tidak diisi/ data di kosongkan) (OPTIONAL ROUTE PARAMETER)
 $router->get('/opsional[/{pram}]', function($pram = null){
     return $pram;
 });
+
+//=====================================================================
+//Membuat Alias Route
+//=====================================================================
+
+$router->get('profile', function(){
+    return redirect()->route('route.profile');
+});
+
+$router->get('profile/route', ['as' => 'route.profile', function(){
+    return 'Profile Route';
+}]);
+
+// $router->get('profile', ['as' => 'route.profile', function(){
+//     return route('route.profile');
+// }]);
+
+// $router->get('profile/idakun', ['as' => 'route.profile', function(){
+//     return route('route.profile');
+// }]);
