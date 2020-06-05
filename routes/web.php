@@ -106,8 +106,14 @@ $router->get('profile/route', ['as' => 'route.profile', function(){
 //=====================================================================
 //Membuat Method Grub
 //=====================================================================
+// Lokasi middleware = App/Http/middleware
 
-$router->group(['prefix' => 'admin'], function () use ($router) {
+// $router->group(['prefix' => 'admin'], function () use ($router) {
+//     $router->get('home', function (){
+//         return 'Home Admin';
+//     });
+
+$router->group(['prefix' => 'admin', 'middleware' => 'auth', 'namespace' => ''], function () use ($router) {
     $router->get('home', function (){
         return 'Home Admin';
     });
@@ -115,4 +121,16 @@ $router->group(['prefix' => 'admin'], function () use ($router) {
     $router->get('profile', function (){
         return 'Profile Admin';
     });
+});
+
+//=====================================================================
+//Membuat Middleware
+//=====================================================================
+
+$router->get('/adm/beranda', ['middleware' => 'age' , function (){
+    return 'Old Enogh';
+}]);
+
+$router->get('/fail', function (){
+    return 'Note yet mature';
 });
