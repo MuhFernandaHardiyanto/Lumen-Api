@@ -30,7 +30,9 @@ $router->post('/bar', function(){
     return 'Hello World - POST';
 });
 
+//=====================================================================
 //The Route allows you to Register routes that respond to any HTTP verb:
+//=====================================================================
 
 //Membuat Url GET
 $router->get('/get', function(){
@@ -60,4 +62,22 @@ $router->delete('/delete', function(){
 //Membuat Url OPTIONS
 $router->options('/options', function(){
     return 'OPTIONS';
+});
+
+//=====================================================================
+//Mencoba Route dengan memanggil ID atau data tertertu
+//=====================================================================
+
+$router->get('/user/{id}', function($id){
+    return 'User id = ' . $id;
+});
+
+//Memanggil 2 route post dan comments
+$router->get('/post/{postID}/comments/{commendID}', function($postID, $komenID){
+    return 'Post ID = ' . $postID . ' Comments ID = ' . $komenID;
+});
+
+//Mencoba Route URL OPSIONAL (boleh tidak diisi/ data di kosongkan)
+$router->get('/opsional[/{pram}]', function($pram = null){
+    return $pram;
 });
