@@ -102,3 +102,17 @@ $router->get('profile/route', ['as' => 'route.profile', function(){
 // $router->get('profile/idakun', ['as' => 'route.profile', function(){
 //     return route('route.profile');
 // }]);
+
+//=====================================================================
+//Membuat Method Grub
+//=====================================================================
+
+$router->group(['prefix' => 'admin'], function () use ($router) {
+    $router->get('home', function (){
+        return 'Home Admin';
+    });
+
+    $router->get('profile', function (){
+        return 'Profile Admin';
+    });
+});
