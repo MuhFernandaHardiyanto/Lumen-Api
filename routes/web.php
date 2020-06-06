@@ -150,3 +150,11 @@ $router->post('/foo', 'Cobakontroler@fooExample');
 $router->get('/user/{id}', 'Cobakontroler@getUser');
 
 $router->get('/post/cat1/{cat1}/cat2/{cat2}', 'Cobakontroler@getPost');
+
+//=====================================================================
+//Menggunakan Named/Alias Rroute dalam Kontroler
+//=====================================================================
+
+$router->get('/alias', ['as' => 'profile' , 'uses' => 'Cobakontroler@getAlias']);
+
+$router->get('/alias/action' , ['as' => 'alias.action' , 'uses' => 'Cobakontroler@getAliasAction']);
