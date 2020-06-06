@@ -9,9 +9,16 @@ class CobaKontroler extends Controller
      *
      * @return void
      */
+//__construct() selalu di exsekusi pertama kali app berjalan
     public function __construct()
     {
-        //
+        $this->middleware('age');
+
+        //menentukan middleware pada url tertentu
+        // $this->middleware('age', ['only' => ['getUser', 'getAlias']]);
+
+        //menentukan middleware pada semua url kecuali di dalam => []
+        // $this->middleware('age', ['except' => ['getUser', 'generateKey']]);
     }
 //======================================================
     public function generateKey()

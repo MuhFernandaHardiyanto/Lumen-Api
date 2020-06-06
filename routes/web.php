@@ -125,15 +125,16 @@ $router->group(['prefix' => 'admin', 'middleware' => 'auth', 'namespace' => ''],
 
 //=====================================================================
 //Membuat Middleware
+//Middleware adalah memisahkan layanan , dan di gunakan sesuai dengan user penggunanya
 //=====================================================================
 
-$router->get('/adm/beranda', ['middleware' => 'age' , function (){
-    return 'Old Enogh';
-}]);
+// $router->get('/adm/beranda', ['middleware' => 'age' , function (){
+//     return 'Old Enogh';
+// }]);
 
-$router->get('/fail', function (){
-    return 'Note yet mature';
-});
+// $router->get('/fail', function (){
+//     return 'Note yet mature';
+// });
 
 //=====================================================================
 //Menggunakan Kontroler pada router
@@ -158,3 +159,15 @@ $router->get('/post/cat1/{cat1}/cat2/{cat2}', 'Cobakontroler@getPost');
 $router->get('/alias', ['as' => 'profile' , 'uses' => 'Cobakontroler@getAlias']);
 
 $router->get('/alias/action' , ['as' => 'alias.action' , 'uses' => 'Cobakontroler@getAliasAction']);
+
+//=====================================================================
+//Implementasi Middleware pada Kontroler
+//=====================================================================
+
+$router->get('/adm/beranda', ['middleware' => 'age' , function (){
+    return 'Old Enogh';
+}]);
+
+$router->get('/fail', function (){
+    return 'Note yet mature';
+});
