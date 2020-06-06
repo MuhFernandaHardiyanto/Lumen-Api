@@ -69,14 +69,14 @@ $router->options('/options', function(){
 //=====================================================================
 
 //(BASIC ROUTE PARAMETER)
-$router->get('/user/{id}', function($id){
-    return 'User id = ' . $id;
-});
+// $router->get('/user/{id}', function($id){
+//     return 'User id = ' . $id;
+// });
 
 //Memanggil 2 route post dan comments (BASIC ROUTE PARAMETER)
-$router->get('/post/{postID}/comments/{commendID}', function($postID, $komenID){
-    return 'Post ID = ' . $postID . ' Comments ID = ' . $komenID;
-});
+// $router->get('/post/{postID}/comments/{commendID}', function($postID, $komenID){
+//     return 'Post ID = ' . $postID . ' Comments ID = ' . $komenID;
+// });
 
 //Mencoba Route URL OPSIONAL (boleh tidak diisi/ data di kosongkan) (OPTIONAL ROUTE PARAMETER)
 $router->get('/opsional[/{pram}]', function($pram = null){
@@ -142,3 +142,11 @@ $router->get('/fail', function (){
 $router->get('/key', 'Cobakontroler@generateKey');
 
 $router->post('/foo', 'Cobakontroler@fooExample');
+
+//=====================================================================
+//Menggunakan Parameter dalam Kontroler pada router
+//=====================================================================
+
+$router->get('/user/{id}', 'Cobakontroler@getUser');
+
+$router->get('/post/cat1/{cat1}/cat2/{cat2}', 'Cobakontroler@getPost');

@@ -13,13 +13,24 @@ class CobaKontroler extends Controller
     {
         //
     }
+
     public function generateKey()
     {
         return str_random(32);
     }
+
     public function fooExample()
     {
         return 'Example Controller From POST request';
     }
-    //
+    
+    public function getUser($id)
+    {
+        return 'User Id = ' . $id;
+    }
+
+    public function getPost($cat1, $cat2)
+    {
+        return 'Category 1 = ' . $cat1 . ' Category 2 = ' . $cat2;
+    }
 }
