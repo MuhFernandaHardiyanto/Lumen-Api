@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use \Illuminate\Http\Request;
 
 class CobaKontroler extends Controller
 {
@@ -12,7 +13,7 @@ class CobaKontroler extends Controller
 //__construct() selalu di exsekusi pertama kali app berjalan
     public function __construct()
     {
-        $this->middleware('age');
+        // $this->middleware('age');
 
         //menentukan middleware pada url tertentu
         // $this->middleware('age', ['only' => ['getUser', 'getAlias']]);
@@ -50,5 +51,19 @@ class CobaKontroler extends Controller
     public function getAliasAction()
     {
         return 'Alias = ' . route('profile');
+    }
+
+//======================================================
+//jika menggunakan request jangan lupa import "\Illuminate\Http\Request"
+
+    public function getFoo(Request $request)
+    {
+        // if ($request->is('foo/bar')){
+        //     return 'Success';
+        // } else {
+        //     return 'Fail';
+        // }
+        // return $request -> path();
+        return $request -> method();
     }
 }

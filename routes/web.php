@@ -171,3 +171,12 @@ $router->get('/adm/beranda', ['middleware' => 'age' , function (){
 $router->get('/fail', function (){
     return 'Note yet mature';
 });
+
+//=====================================================================
+//Menggunakan request Handler pada kontroller
+//=====================================================================
+
+// $router->get('/foo/bar', 'Cobakontroler@getFoo');
+// $router->get('/bar/fo', 'Cobakontroler@getFoo');
+$router->post('/foo/bar', 'Cobakontroler@getFoo');
+$router->post('/bar/fo', 'Cobakontroler@getFoo');
