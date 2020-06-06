@@ -180,3 +180,16 @@ $router->get('/fail', function (){
 // $router->get('/bar/fo', 'Cobakontroler@getFoo');
 $router->post('/foo/bar', 'Cobakontroler@getFoo');
 $router->post('/bar/fo', 'Cobakontroler@getFoo');
+
+//=====================================================================
+//Mengambil nilai imput menggunakan Request
+//=====================================================================
+
+$router->post('/user/profile/nana', 'Cobakontroler@getUserProfile' );
+
+//=====================================================================
+//Menampilkan respon dari request
+//membuat status pesan
+//=====================================================================
+
+$router->get('/response', 'Cobakontroler@getResponse' );
